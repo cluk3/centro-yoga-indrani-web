@@ -1,42 +1,42 @@
+/** @jsx jsx */
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { Header as ThemeHeader, jsx } from 'theme-ui';
+import Navigation from './navigation';
+import SocialLinks from './social-links';
+import Logo from '../../static/assets/logo.svg';
+import FlyingLady from '../../static/assets/flying_lady.svg';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
+import useNavigation from '../hooks/use-navigation';
+
+const Header = () => {
+  const navs = useNavigation();
+  return (
+    <ThemeHeader>
+      <FlyingLady
+        sx={{
+          width: '100px',
+          position: 'relative',
+          top: [-2, -3],
+          left: [-3, -4]
+        }}
+      />
+      <Link
+        to="/"
+        sx={{
+          display: 'flex',
+          justifyContent: ['center', 'start']
+        }}
+      >
+        <Logo
+          sx={{
+            width: ['120px', '150px']
           }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
-
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-  siteTitle: ''
+        />
+      </Link>
+      <Navigation navs={navs} />
+      {/* <SocialLinks /> */}
+    </ThemeHeader>
+  );
 };
 
 export default Header;

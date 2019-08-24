@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const IndexPage = () => <Layout></Layout>;
+const ChiSiamo = () => (
+  <Layout>
+    <h1>Lavori in corso!</h1>
+  </Layout>
+);
 
-export default IndexPage;
+export default ChiSiamo;

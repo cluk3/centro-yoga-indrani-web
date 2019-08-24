@@ -1,9 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Centro Yoga Indrani',
     description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs'
+      'Centro Yoga in Volo Indrani per il benessere fisico e spirituale.',
+    siteUrl: 'https://example.com',
+    image: 'https://lengstorf.com/images/jason-lengstorf.jpg',
+    author: {
+      name: 'Luca Campli'
+    },
+    organization: {
+      name: 'Centro Yoga Indrani',
+      logo: 'https://lengstorf.com/android-chrome-512x512.png',
+      owner: 'Rossana Campli'
+    },
+    social: {
+      instagram: '',
+      fbAppID: ''
+    }
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -17,6 +30,14 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',
@@ -29,7 +50,18 @@ module.exports = {
       }
     },
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-eslint',
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
+    },
     'gatsby-plugin-offline'
   ]
 };
