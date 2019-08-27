@@ -26,7 +26,7 @@ const Navigation = ({ navs }) => (
           sx={{
             color: 'primary',
             fontSize: 2,
-            ':hover': { color: 'primary', textDecoration: 'none' }
+            ':hover': { backgroundColor: 'secondary', textDecoration: 'none' }
           }}
           key={nav.slug}
           to={nav.slug}

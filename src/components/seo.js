@@ -1,41 +1,21 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import useSiteMetadata from '$hooks/use-site-metadata';
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author {
-              name
-            }
-          }
-        }
-      }
-    `
-  );
+function SEO({ description, lang, meta, title, image }) {
+  const siteMetadata = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || siteMetadata.description;
+  const metaImage = image || siteMetadata.image;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang: siteMetadata.siteLang || lang
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: 'description',
@@ -46,6 +26,10 @@ function SEO({ description, lang, meta, title }) {
           content: title
         },
         {
+          property: 'og:url',
+          content: siteMetadata.siteUrl
+        },
+        {
           property: 'og:description',
           content: metaDescription
         },
@@ -54,37 +38,29 @@ function SEO({ description, lang, meta, title }) {
           content: 'website'
         },
         {
-          name: 'twitter:card',
-          content: 'summary'
-        },
-        {
-          name: 'twitter:creator',
-          content: site.siteMetadata.author
-        },
-        {
-          name: 'twitter:title',
-          content: title
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription
+          property: 'og:image',
+          content: metaImage
         }
       ].concat(meta)}
-    />
+    >
+      <link rel="canonical" href={siteMetadata.siteUrl} />
+    </Helmet>
   );
 }
 
 SEO.defaultProps = {
-  lang: 'en',
+  lang: 'it',
   meta: [],
-  description: ''
+  description: '',
+  image: ''
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string
 };
 
 export default SEO;

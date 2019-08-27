@@ -32,10 +32,11 @@ export default {
     },
     Header: {
       px: [3, 4],
-      py: [2, 3],
+      py: [2, 0],
       fontSize: 2,
+      height: ['auto', '9rem'],
       display: 'grid',
-      gridTemplateColumns: ['1fr 3fr 1fr', '8% 20% auto'],
+      gridTemplateColumns: ['1fr 3fr 1fr', '160px 160px auto'],
       flexShrink: 0,
       backgroundColor: 'white'
     },

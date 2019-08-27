@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '$components/layout';
+import SEO from '$components/seo';
 
-const Contatti = () => <Layout></Layout>;
+const IlCentro = () => <Layout></Layout>;
 
-export default Contatti;
+export default IlCentro;

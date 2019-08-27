@@ -3,7 +3,8 @@ module.exports = {
     title: 'Centro Yoga Indrani',
     description:
       'Centro Yoga in Volo Indrani per il benessere fisico e spirituale.',
-    siteUrl: 'https://example.com',
+    siteUrl: 'https://centroyogaindrani.it',
+    siteLang: 'it',
     image: 'https://lengstorf.com/images/jason-lengstorf.jpg',
     author: {
       name: 'Luca Campli'
@@ -40,13 +41,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'centro-yoga-in-volo-indrani',
+        short_name: 'yoga-indrani',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
+        icon: 'src/favicon.png' // This path is relative to the root of the site.
       }
     },
     'gatsby-plugin-theme-ui',
@@ -62,6 +63,8 @@ module.exports = {
         }
       }
     },
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-favicon',
     'gatsby-plugin-offline'
   ]
 };

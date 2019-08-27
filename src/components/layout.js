@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Footer, Main, Styled, css, jsx } from 'theme-ui';
+import { Footer, Main, Styled, Flex, css, jsx } from 'theme-ui';
 import { Global } from '@emotion/core';
-import useSiteMetadata from '../hooks/use-site-metadata';
-import Image from './image';
+import useSiteMetadata from '$hooks/use-site-metadata';
+import ImageSlider from './image-slider';
+import SEO from './seo';
 
 import Header from './header';
 // import './layout.css';
@@ -34,36 +34,37 @@ const Layout = ({ children }) => {
           }
         })}
       />
+      <SEO title="Home" />
       <Header
         siteTitle={siteMetadata.title}
         siteOwner={siteMetadata.organization.owner}
       />
 
       <Main>
-        <div
+        <Flex
           sx={{
             margin: '0 auto',
             maxWidth: 960,
             padding: '0px 1.0875rem 1.45rem',
             paddingTop: 0,
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center'
           }}
         >
           <h1>Lavori in corso!</h1>
-          <div
+          <Flex
             sx={{
               width: '100%',
-              maxWidth: '300px',
-              marginBottom: '1.45rem'
+              marginBottom: '1.45rem',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
-            <Image />
-          </div>
+            <ImageSlider />
+          </Flex>
           {/* {children} */}
-        </div>
+        </Flex>
       </Main>
       <Footer>© {new Date().getFullYear()} Rossana Campli</Footer>
     </Styled.root>

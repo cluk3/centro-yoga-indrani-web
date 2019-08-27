@@ -20,14 +20,11 @@ const Burger = ({ isCollapsed, toggleCollapsed }) => {
         sx={{
           top: 'auto',
           bottom: '0',
-          transitionDelay: '0.13s',
-          'transition-timing-function':
-            'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-          'transition-duration': '0.13s',
+          transition:
+            'transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.13s',
           position: 'absolute',
           width: '40px',
           height: '4px',
-          'transition-property': 'transform',
           borderRadius: '4px',
           backgroundColor: 'primary',
           display: 'block',

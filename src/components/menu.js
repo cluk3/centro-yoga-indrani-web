@@ -25,7 +25,7 @@ const NavMobile = ({ navs, show }) => {
       item && (
         <animated.div key={key} style={props}>
           <Flex
-            as="ul"
+            as="div"
             sx={{
               flexDirection: 'column',
               backgroundColor: 'primary',
@@ -33,25 +33,31 @@ const NavMobile = ({ navs, show }) => {
               height: '100%',
               m: 0,
               p: 0,
-              alignItems: 'center',
-              listStyleType: 'none'
+              alignItems: 'center'
             }}
           >
             {navs.map(nav => (
-              <li sx={{ py: 3, m: 0 }} key={nav.slug}>
-                <Styled.a
-                  as={Link}
-                  sx={{
-                    color: 'background',
-                    fontSize: 3,
-                    ':hover': { color: 'primary', textDecoration: 'none' }
-                  }}
-                  key={nav.slug}
-                  to={nav.slug}
-                >
-                  {nav.title}
-                </Styled.a>
-              </li>
+              <Styled.a
+                key={nav.slug}
+                as={Link}
+                sx={{
+                  color: 'background',
+                  fontSize: 3,
+                  p: 2,
+                  borderRadius: 8,
+                  ':hover': {
+                    backgroundColor: 'secondary',
+                    textDecoration: 'none'
+                  },
+                  ':selection': {
+                    backgroundColor: 'secondary',
+                    textDecoration: 'none'
+                  }
+                }}
+                to={nav.slug}
+              >
+                {nav.title}
+              </Styled.a>
             ))}
           </Flex>
         </animated.div>
